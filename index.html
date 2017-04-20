@@ -1,0 +1,941 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>DAW | GYM</title>
+
+    <meta name="theme-color" content="#1AB394"/>
+
+
+
+
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="icono.ico">
+   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
+
+<!-- ICONOS BOOTSTRAP -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+<!-- Fuente de google -->
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+
+    <script type="text/javascript" 
+      src="http://maps.google.com/maps/api/js?sensor=false">
+    </script>
+
+
+    <script type="text/javascript">
+
+
+    var pantalla_actua = 1;
+
+
+    $(document).ready(function(){
+
+
+
+
+      $(window).resize(function(){
+        $(".pantalla").css("height",window.innerHeight);
+            $("#flecha2").css("top",window.innerHeight + (window.innerHeight * (0.90))+"px");
+            $("#flecha3").css("top",(window.innerHeight * 2) + (window.innerHeight * (0.90))+"px");
+            $("#flecha4").css("top",(window.innerHeight * 3) + (window.innerHeight * (0.90))+"px");
+            $("#flecha5").css("top",(window.innerHeight * 4) + (window.innerHeight * (0.90))+"px");
+
+
+              switch(pantalla_actua){
+                  case 1:
+              var nuevaPosicion = "0px";              
+              $("html, body").animate({scrollTop:nuevaPosicion},0);                  
+                    break;
+
+                  case 2:
+                       var nuevaPosicion = window.innerHeight+"px";              
+                       $("html, body").animate({scrollTop:nuevaPosicion},0);                  
+                    break;
+
+                  case 3:
+                       cambiar_pantalla(3);         
+                       var nuevaPosicion = (window.innerHeight * 2)+"px";
+                       $("html, body").animate({scrollTop:nuevaPosicion},0);                   
+                    break;
+
+                  case 4:
+                        cambiar_pantalla(3);         
+                        var nuevaPosicion = (window.innerHeight * 3)+"px";
+                        $("html, body").animate({scrollTop:nuevaPosicion},0);                     
+                    break;
+
+                  case 5:
+                        cambiar_pantalla(3);         
+                        var nuevaPosicion = (window.innerHeight * 4)+"px";
+                        $("html, body").animate({scrollTop:nuevaPosicion},0);                     
+                    break;
+
+                  case 6:
+                        cambiar_pantalla(3);         
+                        var nuevaPosicion = (window.innerHeight * 5)+"px"; 
+                        $("html, body").animate({scrollTop:nuevaPosicion},0);            
+                    break;
+              } 
+
+
+
+      });
+
+
+
+            //Asignar alto a cada pantalla dependiendo el alto del navegador(100%)
+            $(".pantalla").css("height",window.innerHeight);           
+
+
+
+            //Función para pasar a la siguiente pantalla al pulsar las flechas
+            $(".div_flecha").click(function(){
+              var nuevaPosicion = $(window).scrollTop()+window.innerHeight +"px";
+              $("html, body").animate({scrollTop:nuevaPosicion},1000,animaciones);
+              pantalla_actua += 1;
+              cambiar_pantalla(pantalla_actua);
+            });
+
+
+            //Colocación de las flechas de siguiente pantalla dependiendo del alto del navegador
+            $("#flecha2").css("top",window.innerHeight + (window.innerHeight * (0.90))+"px");
+            $("#flecha3").css("top",(window.innerHeight * 2) + (window.innerHeight * (0.90))+"px");
+            $("#flecha4").css("top",(window.innerHeight * 3) + (window.innerHeight * (0.90))+"px");
+            $("#flecha5").css("top",(window.innerHeight * 4) + (window.innerHeight * (0.90))+"px");
+
+
+
+
+
+            //Activar tranlaciones al entrar en cada pantalla
+            function animaciones(){
+              switch(pantalla_actua){
+
+
+                        case 4:
+                          $( "#captura_sombra2" ).animate(
+                                                    {
+                                                      width:"10%",
+                                                      left:"45%",
+                                                      top:"335%"
+                                                    }
+                                                    ,1000);
+                          $("#div_izq_pantalla4").animate({
+                                                      left:"15%"
+                                                    },1000);
+                          $("#div_der_pantalla4").animate({
+                                                      left:"65%"
+                                                    },1000);
+
+
+
+                        break;
+
+                        case 3:
+                          $( "#captura_sombra" ).animate(
+                                                    {
+                                                      width:"30%",
+                                                      left:"35%",
+                                                      top:"240%"
+                                                    }
+                                                    ,1000);
+                          $("#div_izq_arr_pantalla3").animate({
+                                                      left:"15%"
+                                                    },1000);
+                          $("#div_izq_aba_pantalla3").animate({
+                                                      left:"15%"
+                                                    },1000);
+                          $("#div_der_arr_pantalla3").animate({
+                                                      left:"65%"
+                                                    },1000);
+                          $("#div_der_aba_pantalla3").animate({
+                                                      left:"65%"
+                                                    },1000);                               
+                        break;
+
+                        case 2:
+                          $( "#div_izq_pantalla2" ).animate(
+                                                    {
+                                                      left:"20%"
+                                                    }
+                                                    ,1000);
+                          $( "#div_der_pantalla2" ).animate(
+                                                    {
+                                                      left:"50%"
+                                                    }
+                                                    ,1000);                                                                              
+                        break;
+              }              
+            }
+
+
+
+
+            $("#boton_pantalla_1, #boton_menu_1").click(function(){
+              cambiar_pantalla(1);
+              var nuevaPosicion = "0px";              
+              $("html, body").animate({scrollTop:nuevaPosicion},1000,animaciones);
+            });
+
+            $("#boton_pantalla_2, #boton_menu_2").click(function(){
+              cambiar_pantalla(2);
+              var nuevaPosicion = window.innerHeight+"px";              
+              $("html, body").animate({scrollTop:nuevaPosicion},1000,animaciones);
+            });
+
+            $("#boton_pantalla_3, #boton_menu_3").click(function(){
+              cambiar_pantalla(3);         
+              var nuevaPosicion = (window.innerHeight * 2)+"px";              
+              $("html, body").animate({scrollTop:nuevaPosicion},1000,animaciones);
+            }); 
+
+            $("#boton_pantalla_4, #boton_menu_4").click(function(){
+              cambiar_pantalla(4);         
+              var nuevaPosicion = (window.innerHeight * 3)+"px";              
+              $("html, body").animate({scrollTop:nuevaPosicion},1000,animaciones);
+            }); 
+
+            $("#boton_pantalla_5, #boton_menu_5").click(function(){
+              cambiar_pantalla(5);          
+              var nuevaPosicion = (window.innerHeight * 4)+"px";              
+              $("html, body").animate({scrollTop:nuevaPosicion},1000,animaciones);
+            }); 
+
+            $("#boton_pantalla_6, #boton_menu_6").click(function(){
+              cambiar_pantalla(6);
+              var nuevaPosicion = (window.innerHeight * 5)+"px";              
+              $("html, body").animate({scrollTop:nuevaPosicion},1000,animaciones);
+            });
+
+
+
+
+            $(".boton_menu").hover(
+              function(){
+              if(pantalla_actua==1){$(".boton_menu").animate({opacity:"1"},300);}
+            },
+              function(){
+              if(pantalla_actua==1){$(".boton_menu").animate({opacity:"0.1"},300);}
+              });
+
+
+
+
+
+
+        /*         MAPA DE CONTACTO           */
+        var divMapa = document.getElementById("div_mapa");
+        //  Creamos las opciones
+        var opciones = {
+          center: new google.maps.LatLng(37.391697, -5.988055),  
+          zoom: 15
+        };
+        //  Dibujamos el mapa:
+        var mapa = new google.maps.Map(divMapa, opciones);
+        //Creamos el marcador
+        var marcador = new google.maps.Marker({
+          position: new google.maps.LatLng(37.391697, -5.988055),
+          map: mapa,
+          title:"DAW GYM"
+        });
+
+    });
+
+
+
+    function cambiar_pantalla(pantalla){
+      switch(pantalla){
+        case 1:
+          $("#navegacion div").css("border","0px");
+          $("#boton_pantalla_1").css("border","2px solid white");
+          $(".boton_menu").animate({opacity:"0.1"},1000);
+          $("#logo_barra_superior").animate({opacity:"0"},1000);
+          $("#barra_menu").animate({backgroundColor:"transparent"},1000,function(){
+            $("#boton_menu_2, #boton_menu_3,#boton_menu_4,#boton_menu_5,#boton_menu_6").css("paddingTop","25px");
+            $("#boton_menu_2, #boton_menu_3,#boton_menu_4,#boton_menu_5,#boton_menu_6").css("borderTop","0px");
+            $("#boton_menu_1").css("paddingTop","20px");
+            $("#boton_menu_1").css("borderTop","5px solid white");             
+          });          
+          pantalla_actua = 1; 
+
+          break;
+
+        case 2:
+          $("#navegacion div").css("border","0px");
+          $("#boton_pantalla_2").css("border","2px solid white");
+          $(".boton_menu").animate({opacity:"1"},1000);
+          $("#logo_barra_superior").animate({opacity:"1"},1000);
+          $("#barra_menu").animate({backgroundColor:"silver"},1000,function(){
+            $("#boton_menu_1, #boton_menu_3,#boton_menu_4,#boton_menu_5,#boton_menu_6").css("paddingTop","25px");
+            $("#boton_menu_1, #boton_menu_3,#boton_menu_4,#boton_menu_5,#boton_menu_6").css("borderTop","0px");
+            $("#boton_menu_2").css("paddingTop","20px");
+            $("#boton_menu_2").css("borderTop","5px solid white");             
+          });
+          
+          pantalla_actua = 2;          
+          break;
+
+        case 3:
+          $("#navegacion div").css("border","0px");
+          $("#boton_pantalla_3").css("border","2px solid white");
+          $(".boton_menu").animate({opacity:"1"},1000);
+          $("#logo_barra_superior").animate({opacity:"1"},1000);
+            $("#barra_menu").animate({backgroundColor:"silver"},1000,function(){
+            $("#boton_menu_1, #boton_menu_2,#boton_menu_4,#boton_menu_5,#boton_menu_6").css("paddingTop","25px");
+            $("#boton_menu_1, #boton_menu_2,#boton_menu_4,#boton_menu_5,#boton_menu_6").css("borderTop","0px");
+            $("#boton_menu_3").css("paddingTop","20px");
+            $("#boton_menu_3").css("borderTop","5px solid white");             
+          });         
+          pantalla_actua = 3;          
+          break;
+
+        case 4: 
+          $("#navegacion div").css("border","0px");
+          $("#boton_pantalla_4").css("border","2px solid white");
+          $(".boton_menu").animate({opacity:"1"},1000);
+          $("#logo_barra_superior").animate({opacity:"1"},1000);
+          $("#barra_menu").animate({backgroundColor:"silver"},1000,function(){
+          $("#boton_menu_1, #boton_menu_3,#boton_menu_2,#boton_menu_5,#boton_menu_6")
+          .css("paddingTop","25px");
+          $("#boton_menu_1, #boton_menu_3,#boton_menu_2,#boton_menu_5,#boton_menu_6")
+          .css("borderTop","0px");
+          $("#boton_menu_4").css("paddingTop","20px");
+          $("#boton_menu_4").css("borderTop","5px solid white");             
+          });          
+          pantalla_actua = 4;          
+          break;
+
+        case 5:
+          $("#navegacion div").css("border","0px");
+          $("#boton_pantalla_5").css("border","2px solid white");
+          $(".boton_menu").animate({opacity:"1"},1000);
+          $("#logo_barra_superior").animate({opacity:"1"},1000);
+          $("#barra_menu").animate({backgroundColor:"silver"},1000,function(){
+          $("#boton_menu_1, #boton_menu_3,#boton_menu_4,#boton_menu_2,#boton_menu_6")
+          .css("paddingTop","25px");
+          $("#boton_menu_1, #boton_menu_3,#boton_menu_4,#boton_menu_2,#boton_menu_6")
+          .css("borderTop","0px");
+          $("#boton_menu_5").css("paddingTop","20px");
+          $("#boton_menu_5").css("borderTop","5px solid white");             
+          });         
+          pantalla_actua = 5;          
+          break;
+
+        case 6:
+          $("#navegacion div").css("border","0px");
+          $("#boton_pantalla_6").css("border","2px solid white");
+          $(".boton_menu").animate({opacity:"1"},1000);
+          $("#logo_barra_superior").animate({opacity:"1"},1000);
+          $("#barra_menu").animate({backgroundColor:"silver"},1000,function(){
+          $("#boton_menu_1, #boton_menu_3,#boton_menu_4,#boton_menu_5,#boton_menu_2")
+          .css("paddingTop","25px");
+          $("#boton_menu_1, #boton_menu_3,#boton_menu_4,#boton_menu_5,#boton_menu_2")
+          .css("borderTop","0px");
+          $("#boton_menu_6").css("paddingTop","20px");
+          $("#boton_menu_6").css("borderTop","5px solid white");             
+          });          
+          pantalla_actua = 6;           
+          break;                                                  
+      }
+    }
+
+
+    </script>
+
+
+
+    <style type="text/css">
+
+      *{
+        /*font-family: 'Open Sans', helvetica, arial, sans-serif;*/
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      body{
+        margin: 0px;
+        overflow: hidden;
+
+      }
+
+
+
+
+
+
+      #video{
+        width: 100%;
+        padding: 0px!important;
+        /*margin: 0px!important;*/
+        margin-top: -1.5%;
+
+
+      }
+
+      #pantalla1{
+        overflow: hidden;
+        background-color: black;
+      }
+
+      #pantalla2{
+        background-color: #EBEBEB ;
+      }
+
+      #pantalla3{
+        background-color: #7F7C78;
+      }
+
+      #pantalla4{
+        background-color: #F4F4F4;
+      }
+
+      #pantalla5{
+        background-color: #7F7C78;
+      }
+
+      #pantalla6{
+        background-color: #262626;
+      }
+
+
+
+      #logo_inicio{
+        position: absolute;
+        width: 30%;
+        top: 25%;
+        left: 35%;
+        z-index: 100;
+      }
+
+      #navegacion{
+        top: 45%;
+        right: 1%;
+        width: auto;
+        position: fixed;
+        z-index: 100;
+      }
+
+      #navegacion div{
+        background-color: silver;
+        margin: 10px!important;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #navegacion div:hover{
+        border: 2px solid black;
+      }
+
+
+      #boton_pantalla_1{
+        border: 2px solid white;
+      }
+
+
+
+      .div_flecha{
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        height: 10%;
+        background-image: url("flecha_abajo.png");
+        background-repeat: no-repeat;
+        background-position: 50%;
+      }
+
+      #flecha1{
+        top: 90%;
+      }
+
+
+      .div_flecha:hover{
+        background-color: silver;
+        background-color: rgba(39, 40, 34, 0.7);
+      }
+
+
+
+      /* Propiedades de la imagen al comenzar la animacion */
+      #captura_sombra{
+        width: 0%;
+        left:50%;
+        top: 250%;
+        position: absolute;
+
+
+      }
+
+
+
+      #barra_menu{
+        position: fixed;
+
+        width: 100%;
+        height: 70px;
+        z-index: 200;
+        /*background-color: #18A689;*/
+        box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.1);
+        border-color: 1px solid green;
+      }
+
+      #contenedor_menu{
+
+        
+        height: 100%;
+        width: 580px;
+        /*margin-right: 5%;*/
+        position: absolute;        
+        left: 1%;
+        z-index: 200;
+        border-color: 1px solid red;
+
+      }
+
+      .boton_menu{
+        position: absolute;
+        color: white;
+        font-weight: 700;
+        padding: 25px 10px 0px 10px;
+        cursor: pointer;
+        z-index: 200;
+        border-color: 1px solid blue;
+        
+
+        opacity: 0.2;
+
+      }
+
+      #boton_menu_1{
+        left: 0px;
+        border-top: 5px solid silver;
+        padding-top: 20px;
+
+
+      }
+
+      #boton_menu_2{
+        left: 65px;
+      }
+      #boton_menu_3{
+        left: 195px;
+      }
+
+      #boton_menu_4{
+        left: 288px;
+      }
+
+      #boton_menu_5{
+        left: 395px;
+      }
+
+      #boton_menu_6{
+        left: 474px;
+      }    
+
+
+
+      #logo_barra_superior{
+        position: absolute;
+        right: -5px;
+        top: -8px;
+        width: 100px;
+        opacity: 0;
+      }
+
+
+      /*======= PANTALLA 2 =========*/
+
+
+      #titulo_pantalla2{
+        position: absolute;
+        top: 110%;
+        width: 100%;
+        text-align: center;
+        /*color: #676A6C;*/
+      }
+
+      #titulo_pantalla2 h3{
+        color: #676A6C;
+      }
+
+      #titulo_pantalla2 h6, #div_izq_pantalla2 h6{
+        color: #C0C0C0;
+      }
+
+
+      #div_izq_pantalla2, #div_der_pantalla2{
+        position: absolute;
+        top: 140%;
+
+      }
+
+
+      #div_izq_pantalla2{
+        /*border: 1px solid red;*/
+        left: -30%;
+        text-align: right;
+        padding-top: 2%;
+        padding-right: 2%;
+        width: 30%;
+      }
+
+      #div_der_pantalla2{
+        /*border: 1px solid blue;*/
+        left: 100%;
+        padding-left: 2%;
+        width: 40%;
+      }
+
+      #div_der_pantalla2 img{
+        width: 60%;
+      }
+
+
+
+      /*======= PANTALLA 3 =========*/
+      #titulo_pantalla3{
+        position: absolute;
+        top: 210%;
+        width: 100%;
+        text-align: center;
+        /*color: #676A6C;*/
+      }
+
+
+      #div_izq_arr_pantalla3, #div_izq_aba_pantalla3, #div_der_arr_pantalla3, #div_der_aba_pantalla3{
+        width: 300px;
+        text-align: center;
+        color: #C0C0C0;
+        /*border: 1px dotted black;*/
+      }
+
+
+      #div_izq_arr_pantalla3{
+        position: absolute;
+        top: 230%;
+        left: -20%;
+        
+      }
+
+      #div_izq_aba_pantalla3{
+        position: absolute;
+        top: 260%;
+        left: -20%;
+        
+      }
+
+      #div_der_arr_pantalla3{
+        position: absolute;
+        top: 230%;
+        left: 120%;
+        
+      }
+
+      #div_der_aba_pantalla3{
+        position: absolute;
+        top: 265%;
+        left: 120%;
+        
+      }
+
+
+
+
+
+
+      /*========= PANTALLA 4 ========*/
+            #captura_sombra2{
+        width: 0%;
+        left:50%;
+        top: 340%;
+        position: absolute;
+
+
+      }
+
+
+      #titulo_pantalla4{
+        position: absolute;
+        top: 310%;
+        width: 100%;
+        text-align: center;
+        /*color: #676A6C;*/
+      }
+
+
+
+      #div_izq_pantalla4{
+        position: absolute;
+        top: 340%;
+        left: -20%;
+        width: 300px;
+        text-align: right;
+        color: #C0C0C0;        
+        
+      }
+
+      #div_der_pantalla4{
+        position: absolute;
+        top: 340%;
+        left: 120%;
+        width: 300px;
+        text-align: left;
+        color: #C0C0C0;        
+      }
+
+
+      #div_der_pantalla4 h4, #div_izq_pantalla4 h4{
+        color: #1AB394;
+      }
+
+      #boton_comenzar{
+        background-color: #1AB394;
+        color: white;
+      }
+
+
+/*============= PANTALLA 5 ===============*/
+#pantalla5{
+  background-image: url("mapamundi.png");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: 50% 100%;
+}
+
+      #div_mapa {
+        position: absolute;
+        top: 420%;
+        width: 100%;
+        height: 40%;
+      }
+
+      .barra_corta2{
+        width: 50%;
+        z-index: 100000000;
+        border: 1px solid #1AB394;
+      }
+
+      #div_contacto{
+        position: absolute;
+        top: 470%;
+        left: 45%;
+        color: white;
+        text-align: center;
+      }
+
+      #div_contacto h3{
+        color: #C0C0C0;
+      }
+
+
+
+
+
+
+      .barra_corta{
+        width: 5%;
+        z-index: 100000000;
+        border: 1px solid #1AB394;
+      }
+
+      .letra_azul{
+        color: #1AB394;
+      }
+
+      .letra_gris{
+        color: #C0C0C0;
+      }
+
+      div.div_flecha:hover{
+        cursor: pointer;
+      }
+
+
+
+    </style>
+
+
+
+
+  </head>
+  <body oncontextmenu="return false">
+
+
+
+
+
+    <!-- Botones laterales de navegación -->
+    <div id="navegacion">
+      <div id="boton_pantalla_1" class="botones_navegacion"> </div>
+      <div id="boton_pantalla_2" class="botones_navegacion"> </div>
+      <div id="boton_pantalla_3" class="botones_navegacion"> </div>
+      <div id="boton_pantalla_4" class="botones_navegacion"> </div>
+      <div id="boton_pantalla_5" class="botones_navegacion"> </div>
+    </div>
+
+
+    <div id="contenedor">
+
+
+    <div id="barra_menu">
+      <div id="contenedor_menu">
+        <span id="boton_menu_1" class="boton_menu">INICIO</span>
+        <span id="boton_menu_2" class="boton_menu">INTRODUCCIÓN</span>
+        <span id="boton_menu_3" class="boton_menu">SERVICIOS</span>
+        <span id="boton_menu_4" class="boton_menu">APLICACIÓN</span>
+        <span id="boton_menu_5" class="boton_menu">CONTACTO</span>
+      </div>
+        <img src="logo.png" id="logo_barra_superior">      
+    </div>
+
+      <!--================================= PANTALLA 1 =================================-->
+      <div id="pantalla1" class="pantalla">
+        <video id="video" src="video.mp4" loop autoplay muted></video>
+        <img src="logo.png" id="logo_inicio">
+        <div id="flecha1" class="div_flecha"></div>
+      </div>
+
+
+      <!--================================= PANTALLA 2 =================================-->
+      <div id="pantalla2" class="pantalla">
+
+            <div id="titulo_pantalla2">
+              <hr class="barra_corta">
+              <h3>Bienvenido a tu nueva vida</h3>
+              <h6>Descubre hoy el gimnasio del mañana</h6>
+            </div>
+
+            <div id="div_izq_pantalla2">
+
+
+              <h5 class="letra_azul">DAW GYM</h5>
+              <h6>Descubre hoy el gimnasio del mañana</h6>
+              <p>
+                  Bienvenidos a DAW GYM. Situado en pleno centro de Sevilla, contamos con 8.000 metros cuadrados repartidos en un amplio espacio con una completa sala de fitness, spa, zona de aguas... Todo esto, acompañado por el personal más especializado y una aplicación de gestión que te permitirá controlar de primera mano tus programas de entrenamiento, dietas, etc.
+              </p>
+
+            </div>
+
+
+            <div id="div_der_pantalla2">
+
+              <img src="imagen_pantalla2.jpg">
+
+            </div>
+
+          <div id="flecha2" class="div_flecha"></div>  
+      </div>               
+
+
+      <!--================================= PANTALLA 3 =================================-->
+      <div id="pantalla3" class="pantalla">
+          <div id="titulo_pantalla3">
+            <hr class="barra_corta">
+            <h3 class="letra_gris">Siéntete como en casa</h3>
+            <h3 class="letra_azul">Empieza hoy mismo</h3>
+            <h6 class="letra_gris">Tu decides si quieres relajarte o dar lo maximo de ti</h6>
+          </div>
+          <div id="div_izq_arr_pantalla3">
+            <i class="fa fa-trophy fa-3x letra_azul"></i><br>
+            <h4>Fitness</h4>
+            <p>
+              Sesiones dirigidas a aquellos que deseen desarrollar y esculpir la musculatura. Conoce los movimientos guiados, la optimización del tiempo y el ejercicio sano sin riesgo de lesiones.
+            </p>
+          </div>
+          <div id="div_izq_aba_pantalla3">
+            <i class="fa fa-mobile fa-3x letra_azul"></i><br>
+            <h4>Aplicación</h4>            
+            <p>
+              Aplicación cómoda e intuitiva para estar al tanto de su entrenamiento actual, dietas , recomendaciones de nuestros especialistas y modificar su cuenta de usuario. Accesible desde cualquier dispositivo.
+            </p>
+          </div>
+          <div id="div_der_arr_pantalla3">
+            <i class="fa fa-diamond fa-3x letra_azul"></i><br>
+            <h4>Spa</h4>            
+            <p>
+              Descubre la manera más relajante y saludable de disfrutar de las propiedades del agua en nuestra piscina de hidromasaje con cascada y chorros a presión o sumérgete en la piscina climatizada de 25 metros.
+            </p>
+          </div>
+          <div id="div_der_aba_pantalla3">
+            <i class="fa fa-sun-o fa-3x letra_azul"></i><br>
+            <h4>Piscina</h4>            
+            <p>
+              Tambien podras disfrutar de nuestras piscinas exteriores, baños de vapor y sauna. Todo un lujo a tu alcance. 
+            </p>
+          </div>
+          <img id="captura_sombra" src="captura_sombra.png">        
+          <div id="flecha3" class="div_flecha"></div> 
+      </div>  
+
+
+      <!--================================= PANTALLA 4 =================================-->
+      <div id="pantalla4" class="pantalla">
+          <div id="titulo_pantalla4">
+            <hr class="barra_corta">
+            <h3 class="letra_gris">Conecta tu bienestar</h3>
+            <h3 class="letra_azul">Fácil e intuitiva</h3>
+            <h6 class="letra_gris">Realiza el segimiento de tu entrenamiento y esta en contacto con nuestro personal </h6>
+          </div>
+          <div id="div_izq_pantalla4">
+            <h4>Dietas y entrenamientos</h4>            
+            <p>
+              Consulta el plan de entrenamiento y la dieta asignada por tu entrenador, descripción detallada de como realizarlos y los beneficios que estos te ofrecerán. Controla de cerca tu peso, y has pregunta o sugerencias a nuestro equipo tecnico.
+            </p>
+          </div>
+          <div id="div_der_pantalla4">
+            <h4>Tu gimnasio en cualquier parte</h4>            
+            <p>
+              Una aplicación que cualquiera puede usar gracias a su simple interfaz, adaptada a cualquier dispositivo para que siempre estes al tanto de tu entrenamientos y dietas.<br>
+              <a href="gestion/"><button id="boton_comenzar" class="btn btn-xs">Comenzar</button></a>
+            </p>
+          </div>                   
+            <img id="captura_sombra2" src="captura_sombra2.png">
+           <div id="flecha4" class="div_flecha"></div> 
+      </div>  
+
+
+      <!--================================= PANTALLA 5 =================================-->
+      <div id="pantalla5" class="pantalla">
+                   <div id="div_mapa"></div>
+                   <div id="div_contacto">
+                      <hr class="barra_corta2">
+                      <h3>Contactenos</h3>
+                      <h4>Daw Gym</h4>
+                      <p> C/ Francisco Carrióin Mejias Nº10<br>Sevilla (41003)<br>Tel:954123456  </p>
+                      <a href="https://www.facebook.com/"><i class="fa fa-facebook fa-2x letra_azul"></i></a>&nbsp;
+                      <a href="https://twitter.com/"><i class="fa fa-twitter fa-2x letra_azul"></i></a>&nbsp;
+                      <a href="https://instagram.com/"><i class="fa fa-instagram fa-2x letra_azul"></i></a>
+                   </div>
+      </div>  
+
+ 
+fa-facebook-square
+
+
+    </div>
+
+  </body>
+</html>
